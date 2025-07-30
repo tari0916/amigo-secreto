@@ -15,6 +15,22 @@ function limpiarCaja(){
     document.getElementById("amigo").value = "";
 }
 
+//Añade los nombres a la lista con id = listaAmigos y lo muestra al usuario
+function actualizarLista(){
+    //Obtiener la lista donde se mostrarán los nombres y vaciar
+    let listaAmigo = document.getElementById("listaAmigos");
+    listaAmigo.innerHTML = "";
+    
+    for(let contador = 0; contador < amigos.length; contador++){
+        //Crea el elemento li
+        let lista = document.createElement("li");
+        //Asigna el nombre como contenido de texto
+        lista.textContent = amigos[contador];
+        //Agrega al <ul> con id="lista-amigos"
+        listaAmigo.appendChild(lista);
+    }
+}
+
 function agregarAmigo(){
     //Almacenamiento del nombre ingresado por el usuario
     amigoIngresado = document.getElementById("amigo").value;
@@ -32,6 +48,8 @@ function agregarAmigo(){
             limpiarCaja();
             //Se verifica que el nombre se añadió correctamente al array
             console.log(amigos);
+            //Se actualiza la lista a mostrar
+            actualizarLista();
         } else {
              alert("El nombre solo debe contener letras");
         }
