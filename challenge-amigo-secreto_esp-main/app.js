@@ -46,12 +46,41 @@ function agregarAmigo(){
             amigos.push(amigoIngresado);
             //Limpia campo amigo
             limpiarCaja();
-            //Se verifica que el nombre se añadió correctamente al array
-            console.log(amigos);
             //Se actualiza la lista a mostrar
             actualizarLista();
         } else {
              alert("El nombre solo debe contener letras");
         }
     }
+}
+
+function sortearAmigo(){
+    let result = document.getElementById("resultado");
+    //Validar que el array amigos no esté vacío 
+    if(amigos.length === 0){
+        alert("Por favor, inserte un nombre");
+    } else {
+        //Número maximo para generar el número aleatorio
+        let numeroMaximo = amigos.length-1;
+        //Generación de indice aleatorio
+        let indice = Math.floor(Math.random()*numeroMaximo);
+        //Nombre correspondiente en el arreglo y se muestra el resultado
+        result.innerHTML = amigos[indice];
+        //Se habilita el botón de reiniciar sorteo
+        document.getElementById('reiniciar').removeAttribute('disabled');
+    }
+}
+
+function reiniciarSorteo(){
+    //El resultado del sorteo anterior se borra
+    let result= document.getElementById("resultado");
+    result.innerHTML="";
+    //La lista amigos se reestablece
+    amigos = []; 
+    //No hay ningún amigo ingresado
+    amigoIngresado = "";
+    //Se actualiza la lista de los nombres a sortear
+    actualizarLista();
+    //Se deshabilita de nuevo el botón de reiniciar
+    document.querySelector('#reiniciar').setAttribute('disabled','true');   
 }
