@@ -4,7 +4,7 @@
 
 ## 🌐 ¿Cómo funciona?
 
-1. Accede a la página desde tu navegador.
+1. Accede a la página desde tu navegador https://tari0916.github.io/amigo-secreto/
 2. Ingresa los nombres de los participantes (sin caracteres especiales ni números).
 3. Haz clic en **"Sortear Amigo"**.
 4. Visualiza el resultado del sorteo.
